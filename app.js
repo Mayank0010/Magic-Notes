@@ -32,7 +32,7 @@ function showNotes() {
           <div class="card-body">
               <h5 class="card-title">Note ${index + 1}</h5>
               <p class="card-text">${element}</p>
-              <button id="${index}" onclick="deleteNote(this.id)"class="btn btn-danger">Delete</button>
+              <button id="${index}" onclick="deleteNote(this.id)" class="btn btn-danger">Delete</button>
           </div>
   </div>`;
     });
@@ -61,11 +61,12 @@ function deleteNote(index) {
     showNotes();
 }
 
-let search = document.getElementById("searchTxt");
+let search = document.getElementById('searchTxt');
 search.addEventListener("input", function() {
-    inputVal = search.value;
+
+    let inputVal = search.value.toLowerCase();
     console.log("Input event fired", inputVal);
-    let card = document.getElementsByClassName("card");
+    let card = document.getElementsByClassName('card');
     Array.from(card).forEach(function(element) {
         let cardTxt = element.getElementsByTagName("p")[0].innerText;
         if (cardTxt.includes(inputVal)) {
